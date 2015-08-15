@@ -47,5 +47,10 @@ class ArticlesController < ApplicationController
 		redirect_to article_path(@article)
 	end
 
+	def tag_list=(tags_string)
+		tag_names = tags_string.split(",").collect {|s| s.strip.downcase}.uniq
+    	tag = Tag.find_or_create_by(name: tag_name)
+	end
+
 
 end
